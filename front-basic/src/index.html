@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f5f5f5;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    .user-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .user-card {
+      background-color: white;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 200px;
+      transition: transform 0.2s ease;/* Thời gian hiệu ứng chuyển động*/
+    }
+
+    .user-card:hover {
+      transform: scale(1.05); /* tạo hiệu ứng khi di chuột vào nổi lên*/
+    }
+   
+
+    .user-id {
+      font-weight: bold;
+      color: #555;
+    }
+
+    .user-name {
+      font-size: 18px;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+  <h1>User List</h1>
+  <div class="user-container" id="userContainer"></div>
+
+  <script>
+    fetch('/api/users')
+      .then(response => response.json())
+      .then(users => {
+        const container = document.getElementById('userContainer');
+        users.forEach(user => {
+          const card = document.createElement('div');
+          card.className = 'user-card';
+          card.innerHTML = `
+            <div class="user-id">ID: ${user.id}</div>
+            <div class="user-name">Name: ${user.name}</div>
+          `;
+          container.appendChild(card);
+        });
+      });
+  </script>
+</body>
+</html>
