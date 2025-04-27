@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Side Box</title>
+  <style>
+    body {
+      background-color: #f9f9f9;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+    }
+    .sidebar {
+      width: 250px;
+      background-color: #fff;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .content {
+      flex: 1;
+      padding: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <h2>Side Box</h2>
+    <p>This is a side box.</p>
+  </div>
+  <div class="content">
+    <h1>Main Content</h1>
+    <p>Your main content goes here.</p>
+  </div>
+</body>
+</html>
